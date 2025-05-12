@@ -27,3 +27,22 @@ function isAnagram(s, t) {
 
 isAnagram("racecar", "carrace");
 isAnagram("jar", "jam");
+
+//Problem 3
+//Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
+
+function twoSum(nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let y = 1; y < nums.length; y++) {
+      if (nums[i] + nums[y] == target && i != y) {
+        
+        console.log([i, y]);
+        return;
+      }
+    }
+  }
+}
+
+twoSum([3, 4, 5, 6], 7);
+twoSum([4, 5, 6], 10);
+twoSum([5, 5], 10);
