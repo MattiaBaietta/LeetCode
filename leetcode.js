@@ -35,8 +35,6 @@ function twoSum(nums, target) {
   for (let i = 0; i < nums.length; i++) {
     for (let y = 1; y < nums.length; y++) {
       if (nums[i] + nums[y] == target && i != y) {
-        
-        console.log([i, y]);
         return;
       }
     }
@@ -46,3 +44,27 @@ function twoSum(nums, target) {
 twoSum([3, 4, 5, 6], 7);
 twoSum([4, 5, 6], 10);
 twoSum([5, 5], 10);
+
+//Problem 4
+//Given an integer array nums and an integer k, return the k most frequent elements within the array.
+// The test cases are generated such that the answer is always unique.
+
+function topKFrequent(nums, k) {
+  const numarray = {};
+
+  nums.forEach((element) => {
+    if (numarray[element] >= 1) {
+      numarray[element] = numarray[element] + 1;
+    } else {
+      numarray[element] = 1;
+    }
+  });
+
+  let sortedObject = 
+    Object.entries(numarray).sort(([, a], [, b]) => b - a)
+  return sortedObject.slice(0,k).map(x=>x[0]);
+   
+}
+
+topKFrequent([4, 2, 2, 3, 3, 3], 2);
+topKFrequent([7, 7], 1);
